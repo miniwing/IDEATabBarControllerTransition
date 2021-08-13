@@ -1,0 +1,2 @@
+# IDEATabBarControllerTransition
+IDEATabBarControllerTransition
