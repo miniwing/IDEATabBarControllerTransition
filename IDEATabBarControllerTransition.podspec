@@ -1,19 +1,18 @@
 
 Pod::Spec.new do |spec|
-  spec.name             = "IDEATabBarControllerTransition"
-  spec.version          = "1.0.0"
-  spec.summary          = "IDEATabBarControllerTransition"
-  spec.homepage         = "https://github.com/miniwing"
-  spec.author           = { "Harry" => "miniwing.hz@gmail.com" }
-  spec.platform         = :ios, "10.0"
+  spec.version                      = "2.4.3"
+  spec.name                         = "IDEATabBarControllerTransition"
+  spec.version                      = "1.0.0"
+  spec.summary                      = "IDEATabBarControllerTransition"
+  spec.homepage                     = "https://github.com/miniwing"
+  spec.author                       = { "Harry" => "miniwing.hz@gmail.com" }
 
-  # spec.swift_versions   = ["4.2", "5.0"]
-  
-  spec.source           = { :path => "." }
-    
-  spec.license          = "MIT"
+#  spec.source                       = { :path => "." }
+  spec.source                       = { :git => 'https://github.com/miniwing/IDEATabBarControllerTransition.git', :tag => spec.version.to_s }
 
-  spec.requires_arc     = true
+  spec.license                      = "MIT"
+
+  spec.requires_arc                 = true
 
   spec.ios.deployment_target        = '10.0'
   spec.watchos.deployment_target    = '4.3'
@@ -22,13 +21,13 @@ Pod::Spec.new do |spec|
   spec.tvos.deployment_target       = '10.0'
 
   spec.ios.pod_target_xcconfig      = {
-                                        'PRODUCT_BUNDLE_IDENTIFIER' => 'com.idea.IDEATabBarControllerTransition',
-                                        'ENABLE_BITCODE'            => 'NO',
-                                        'SWIFT_VERSION'             => '5.0',
-                                        'EMBEDDED_CONTENT_CONTAINS_SWIFT'       => 'NO',
-                                        'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'NO',
-                                        'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
-                                      }
+                                      'PRODUCT_BUNDLE_IDENTIFIER' => 'com.idea.IDEATabBarControllerTransition',
+                                      'ENABLE_BITCODE'            => 'NO',
+                                      'SWIFT_VERSION'             => '5.0',
+                                      'EMBEDDED_CONTENT_CONTAINS_SWIFT'       => 'NO',
+                                      'ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES' => 'NO',
+                                      'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+                                    }
   spec.osx.pod_target_xcconfig      = { 'PRODUCT_BUNDLE_IDENTIFIER' => 'com.idea.IDEATabBarControllerTransition' }
   spec.watchos.pod_target_xcconfig  = { 'PRODUCT_BUNDLE_IDENTIFIER' => 'com.idea.IDEATabBarControllerTransition-watchOS' }
   spec.tvos.pod_target_xcconfig     = { 'PRODUCT_BUNDLE_IDENTIFIER' => 'com.idea.IDEATabBarControllerTransition' }
@@ -37,34 +36,36 @@ Pod::Spec.new do |spec|
     'GCC_PREPROCESSOR_DEFINITIONS'  => ' MODULE=\"IDEATabBarControllerTransition\" '
   }
 
-  spec.xcconfig       = {
-    'HEADER_SEARCH_PATHS'     => [
-                                  "${PODS_TARGET_SRCROOT}/",
-                                  "${PODS_TARGET_SRCROOT}/../",
-                                  "${PODS_ROOT}/Headers/Public/**",
-#                                  "${PODS_ROOT}/Headers/Public/YYKit",
-#                                  "${PODS_ROOT}/Headers/Public/IDEAKit/",
-#                                  "${PODS_ROOT}/Headers/Public/IDEAUIKit/",
-#                                  "${PODS_ROOT}/Headers/Public/IDEAColor",
-#                                  "${PODS_ROOT}/Headers/Public/IDEAFONT",
-#                                  "${PODS_ROOT}/Headers/Public/RTRootNavigationController",
-#                                  "${PODS_ROOT}/Headers/Public/IDEANightVersion",
-#                                  "${PODS_ROOT}/Headers/Public/MaterialComponents",
-                                  ],
+  spec.xcconfig                     = {
+    'HEADER_SEARCH_PATHS'           =>
+                                        [
+#                                         "${PODS_TARGET_SRCROOT}/",
+#                                         "${PODS_TARGET_SRCROOT}/../",
+#                                         "${PODS_ROOT}/Headers/Public/**",
+#                                         "${PODS_ROOT}/Headers/Public/YYKit",
+#                                         "${PODS_ROOT}/Headers/Public/IDEAKit/",
+#                                         "${PODS_ROOT}/Headers/Public/IDEAUIKit/",
+#                                         "${PODS_ROOT}/Headers/Public/IDEAColor",
+#                                         "${PODS_ROOT}/Headers/Public/IDEAFONT",
+#                                         "${PODS_ROOT}/Headers/Public/RTRootNavigationController",
+#                                         "${PODS_ROOT}/Headers/Public/IDEANightVersion",
+#                                         "${PODS_ROOT}/Headers/Public/MaterialComponents",
+                                        ],
                                 
-    'FRAMEWORK_SEARCH_PATHS'  =>  [
-#                                    "${PODS_CONFIGURATION_BUILD_DIR}/RTRootNavigationController",
-#                                    "${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents"
-                                  ]
+    'FRAMEWORK_SEARCH_PATHS'        =>
+                                        [
+#                                         "${PODS_CONFIGURATION_BUILD_DIR}/RTRootNavigationController",
+#                                         "${PODS_CONFIGURATION_BUILD_DIR}/MaterialComponents"
+                                        ]
   }
 
-  spec.public_header_files  = 'IDEATabBarControllerTransition/**/*.h'
+  spec.public_header_files          = 'IDEATabBarControllerTransition/**/*.h'
                               
-  spec.source_files         = 'IDEAUIKitExtension/**/*.{h,m}',
-                              'IDEAFoundationExtension/**/*.{h,m}',
-                              'IDEATabBarControllerTransition/**/*.{h,m}'
+  spec.source_files                 = 'IDEAUIKitExtension/**/*.{h,m}',
+                                      'IDEAFoundationExtension/**/*.{h,m}',
+                                      'IDEATabBarControllerTransition/**/*.{h,m}'
   
-  spec.frameworks           = ['Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore', 'CoreFoundation']
+  spec.frameworks                   = ['Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore', 'CoreFoundation']
 
   if ENV['IDEA_YYKIT'] == 'YES'
     spec.dependency 'YYKit'
@@ -161,48 +162,21 @@ Pod::Spec.new do |spec|
 #ifdef __OBJC__
 
 #  if __has_include(<RTRootNavigationController/RTRootNavigationController.h>)
-#     define RT_ROOT_NAVIGATIONCONTROLLER                                  (1)
 #     import <RTRootNavigationController/RTRootNavigationController.h>
+#     define RT_ROOT_NAVIGATIONCONTROLLER                                  (1)
 #  elif __has_include("RTRootNavigationController/RTRootNavigationController.h")
-#     define RT_ROOT_NAVIGATIONCONTROLLER                                  (1)
 #     import "RTRootNavigationController/RTRootNavigationController.h"
-#  elif __has_include("RTRootNavigationController.h")
 #     define RT_ROOT_NAVIGATIONCONTROLLER                                  (1)
-#     import "RTRootNavigationController.h"
 #  else
 #     define RT_ROOT_NAVIGATIONCONTROLLER                                  (0)
 #  endif
 
-#  if (__has_include(<MaterialComponents/MaterialAppBar.h>))
-#     define MATERIAL_APP_BAR                                              (1)
-#     import <MaterialComponents/MaterialAppBar.h>
-#     import <MaterialComponents/MaterialFlexibleHeader.h>
-#  else
-#     define MATERIAL_APP_BAR                                              (0)
-#  endif
-
-#  if __has_include(<IDEANightVersion/DKNightVersion.h>)
-#     define IDEA_NIGHT_VERSION_MANAGER                                    (1)
-#     import <IDEANightVersion/DKNightVersion.h>
-#  elif __has_include("IDEANightVersion/DKNightVersion.h")
-#     define IDEA_NIGHT_VERSION_MANAGER                                    (1)
-#     import "IDEANightVersion/DKNightVersion.h"
-#  elif __has_include("DKNightVersion.h")
-#     define IDEA_NIGHT_VERSION_MANAGER                                    (1)
-#     import "DKNightVersion.h"
-#  else
-#     define IDEA_NIGHT_VERSION_MANAGER                                    (0)
-#  endif
-
 #  if __has_include(<YYKit/YYKit.h>)
-#     define YY_KIT                                                        (1)
 #     import <YYKit/YYKit.h>
+#     define YY_KIT                                                        (1)
 #  elif __has_include("YYKit/YYKit.h")
-#     define YY_KIT                                                        (1)
 #     import "YYKit/YYKit.h"
-#  elif __has_include("YYKit.h")
 #     define YY_KIT                                                        (1)
-#     import "YYKit.h"
 #  else
 #     define YY_KIT                                                        (0)
 #  endif
