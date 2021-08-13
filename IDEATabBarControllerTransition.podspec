@@ -1,18 +1,14 @@
-
 Pod::Spec.new do |spec|
-  spec.version                      = "2.4.3"
   spec.name                         = "IDEATabBarControllerTransition"
   spec.version                      = "1.0.0"
   spec.summary                      = "IDEATabBarControllerTransition"
+  spec.description                  = "IDEANightVersion"
   spec.homepage                     = "https://github.com/miniwing"
+  spec.license                      = "MIT"
   spec.author                       = { "Harry" => "miniwing.hz@gmail.com" }
 
 #  spec.source                       = { :path => "." }
   spec.source                       = { :git => 'https://github.com/miniwing/IDEATabBarControllerTransition.git', :tag => spec.version.to_s }
-
-  spec.license                      = "MIT"
-
-  spec.requires_arc                 = true
 
   spec.ios.deployment_target        = '10.0'
   spec.watchos.deployment_target    = '4.3'
@@ -35,6 +31,8 @@ Pod::Spec.new do |spec|
   spec.pod_target_xcconfig          = {
     'GCC_PREPROCESSOR_DEFINITIONS'  => ' MODULE=\"IDEATabBarControllerTransition\" '
   }
+
+  spec.frameworks                   = ['Foundation', 'UIKit']
 
   spec.xcconfig                     = {
     'HEADER_SEARCH_PATHS'           =>
@@ -64,8 +62,7 @@ Pod::Spec.new do |spec|
   spec.source_files                 = 'IDEAUIKitExtension/**/*.{h,m}',
                                       'IDEAFoundationExtension/**/*.{h,m}',
                                       'IDEATabBarControllerTransition/**/*.{h,m}'
-  
-  spec.frameworks                   = ['Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore', 'CoreFoundation']
+  spec.requires_arc                 = true
 
   if ENV['IDEA_YYKIT'] == 'YES'
     spec.dependency 'YYKit'
